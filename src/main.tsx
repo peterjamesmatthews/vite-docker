@@ -11,3 +11,5 @@ ReactDOM.createRoot(root).render(
 		<App />
 	</React.StrictMode>,
 );
+
+console.log(import.meta.env);
