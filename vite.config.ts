@@ -7,4 +7,5 @@ export default defineConfig({
 	plugins: [react(), biomePlugin()],
 	build: { minify: "esbuild" },
 	clearScreen: true,
+	server: { host: true },
 });

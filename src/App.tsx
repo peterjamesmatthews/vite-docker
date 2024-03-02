@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import viteLogo from "/vite.svg";
 import Adder from "./Adder";
 import "./App.css";
@@ -8,6 +8,8 @@ import reactLogo from "./assets/react.svg";
 
 function App() {
 	const [count, setCount] = useState(0);
+
+	const incrementCount = useCallback(() => setCount(Adder(count, 1)), [count]);
 
 	return (
 		<>
@@ -23,10 +25,7 @@ function App() {
 				Vite <Plus /> React
 			</h1>
 			<div className="card">
-				<button
-					type="button"
-					onClick={() => setCount((count) => Adder(count, 1))}
-				>
+				<button type="button" onClick={incrementCount}>
 					count is {count}
 				</button>
 				<p>

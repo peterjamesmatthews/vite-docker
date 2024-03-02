@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  web-app:
+    build: .
+    volumes:
+      - .:/web-app
+      - /web-app/node_modules
+    ports:
+      - "5173:5173"
