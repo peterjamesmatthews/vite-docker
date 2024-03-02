@@ -6,4 +6,5 @@ import biomePlugin from "vite-plugin-biome";
 export default defineConfig({
 	plugins: [react(), biomePlugin()],
 	build: { minify: "esbuild" },
+	clearScreen: true,
 });
