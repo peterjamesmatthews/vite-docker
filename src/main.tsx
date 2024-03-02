@@ -12,4 +12,4 @@ ReactDOM.createRoot(root).render(
 	</React.StrictMode>,
 );
 
-console.log(import.meta.env);
+console.log(`environment variable FOO = ${import.meta.env.VITE_FOO}`);
