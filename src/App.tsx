@@ -2,6 +2,7 @@ import { useState } from "react";
 import viteLogo from "/vite.svg";
 import Adder from "./Adder";
 import "./App.css";
+import "./App.scss";
 import Plus from "./Plus";
 import reactLogo from "./assets/react.svg";
 
