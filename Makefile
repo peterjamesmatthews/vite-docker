@@ -1,8 +1,37 @@
 .PHONY: develop
 develop:
-	docker compose -f docker-compose.yml up -d --build
+	docker compose \
+		--file docker-compose.yml \
+		--profile develop \
+		up \
+		--detach \
+		--build
+	docker image prune -f
+
+.PHONY: preview
+preview:
+	docker compose \
+		--file docker-compose.yml \
+		--profile preview \
+		up \
+		--detach \
+		--build
+	docker image prune -f
+
+.PHONY: production
+production:
+	docker compose \
+		--file docker-compose.yml \
+		--profile production \
+		up \
+		--detach \
+		--build
 	docker image prune -f
 
 .PHONY: clean
 clean:
-	docker compose -f docker-compose.yml down -t 1
+	docker compose \
+		--profile "*" \
+		--file docker-compose.yml \
+		down \
+		--timeout 1

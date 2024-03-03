@@ -18,4 +18,9 @@ FROM build as preview
 EXPOSE 4173
 CMD npm run preview
 
-# TODO FROM nginx:alpine as production
+FROM nginx:alpine as production
+RUN rm -rf  /usr/share/nginx/html/*
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY --from=build /web-app/dist /usr/share/nginx/html/dist
+EXPOSE 8080
+CMD ["nginx", "-g", "daemon off;"]
