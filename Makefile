@@ -1,5 +1,5 @@
-.PHONY: dev
-dev:
+.PHONY: develop
+develop:
 	docker compose -f docker-compose.yml up -d --build
 	docker image prune -f
 

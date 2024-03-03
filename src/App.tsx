@@ -6,7 +6,7 @@ import "./App.scss";
 import Plus from "./Plus";
 import reactLogo from "./assets/react.svg";
 
-function App() {
+export default function App() {
 	const [count, setCount] = useState(0);
 
 	const incrementCount = useCallback(() => setCount(Adder(count, 1)), [count]);
@@ -38,5 +38,3 @@ function App() {
 		</>
 	);
 }
-
-export default App;

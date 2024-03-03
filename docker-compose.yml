@@ -1,10 +1,13 @@
 version: "3"
+name: develop
 
 services:
   web-app:
-    build: .
+    build:
+      context: .
+      target: develop
     volumes:
       - .:/web-app
-      - /web-app/node_modules
+      - /web-app
     ports:
-      - "5173:5173"
+      - "80:5173"
