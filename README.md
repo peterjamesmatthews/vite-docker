@@ -1,30 +1,31 @@
-# React + TypeScript + Vite
+# Vite-Docker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains sensible configurations to base a new TypeScript React project on.
 
-Currently, two official plugins are available:
+Such configurations include:
+  - Makefile one-liners.
+  - Docker Compose profiles for development and production.
+  - Dockerfile build stages for excellent caching.
+  - Vite configuration for TypeScript React.
+  - Linting and formatting provided by Biome and Prettier.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Usage
 
-## Expanding the ESLint configuration
+## Development
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+To start developing, simply run:
+```sh
+make
+````
 
-- Configure the top-level `parserOptions` property like this:
+A development server will begin listening on port `80` and will hot reload changes you make.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+## Production
+
+To start a production server, simply run:
+```sh
+make production
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+A nginx server will listen on port `80` and serve the production build of your application.
+
