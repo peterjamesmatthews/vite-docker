@@ -14,10 +14,6 @@ CMD npm run dev
 FROM source as build
 RUN npm run build
 
-FROM build as preview
-EXPOSE 4173
-CMD npm run preview
-
 FROM nginx:alpine as production
 RUN rm -rf  /usr/share/nginx/html/*
 COPY nginx.conf /etc/nginx/nginx.conf

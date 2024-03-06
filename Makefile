@@ -8,16 +8,6 @@ develop:
 		--build
 	docker image prune -f
 
-.PHONY: preview
-preview:
-	docker compose \
-		--file docker-compose.yml \
-		--profile preview \
-		up \
-		--detach \
-		--build
-	docker image prune -f
-
 .PHONY: production
 production:
 	docker compose \
