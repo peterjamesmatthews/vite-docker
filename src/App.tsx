@@ -1,15 +1,16 @@
-import { useCallback, useState } from "react";
-import viteLogo from "/vite.svg";
-import Adder from "./Adder";
+import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
 import "./App.scss";
 import Plus from "./Plus";
 import reactLogo from "./assets/react.svg";
+import { increment, selectCount } from "./slices/count";
+import viteLogo from "/vite.svg";
+import { useCallback } from "react";
 
 export default function App() {
-	const [count, setCount] = useState(0);
-
-	const incrementCount = useCallback(() => setCount(Adder(count, 1)), [count]);
+	const dispatch = useDispatch();
+	const count = useSelector(selectCount);
+	const handleCount = useCallback(() => dispatch(increment()), [dispatch]);
 
 	return (
 		<>
@@ -25,7 +26,7 @@ export default function App() {
 				Vite <Plus /> React
 			</h1>
 			<div className="card">
-				<button type="button" onClick={incrementCount}>
+				<button type="button" onClick={handleCount}>
 					count is {count}
 				</button>
 				<p>
