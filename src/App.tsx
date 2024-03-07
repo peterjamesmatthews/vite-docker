@@ -1,11 +1,11 @@
+import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import viteLogo from "/vite.svg";
 import "./App.css";
 import "./App.scss";
 import Plus from "./Plus";
 import reactLogo from "./assets/react.svg";
 import { increment, selectCount } from "./slices/count";
-import viteLogo from "/vite.svg";
-import { useCallback } from "react";
 
 export default function App() {
 	const dispatch = useDispatch();
